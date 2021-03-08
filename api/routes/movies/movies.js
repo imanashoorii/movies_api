@@ -11,7 +11,7 @@ const {
 
 
 router.get("/detail", detail);
-// router.post("/create", create);
+router.post("/create", create);
 // router.post("/update", update);
 
 

@@ -5,12 +5,12 @@ const app = express();
 
 const connectToMongoDB = async() => {
     try {
-    await mongoose.connect('mongodb://root:root@192.168.56.3:27017/test', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
-});
+        await mongoose.connect('mongodb://root:root@192.168.56.3:27017/test', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useFindAndModify: false,
+            useCreateIndex: true
+        });
     } catch(err) {
         throw err
     }
