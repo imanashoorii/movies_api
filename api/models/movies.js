@@ -3,14 +3,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
-var create = new Date()
-
 const movieSchema = Schema ({
 
     _id: ObjectId,
     title: {
         type: String,
-        unique: true,
         required: true,
     },
     director: {
@@ -20,4 +17,4 @@ const movieSchema = Schema ({
 });
 
 
-module.exports = mongoose.model("Movies", movieSchema);
+module.exports = mongoose.model("Movie", movieSchema);

@@ -19,12 +19,14 @@ exports.create = (req, res, next) => {
         director: director
     })
     newMovie.save()
-           .then(newUser => {
-               res.status(200).json({
+           .then( newMovie => console.log(newMovie),
+               res.json({
                    'message': "User Created"
                })
-           })
-           .catch(err =>console.log(err), res.status(400).json({
+            
+           )
+           .catch(err => console.log(err), res.json({
                'message': 'Failed'
            }))
+
 };

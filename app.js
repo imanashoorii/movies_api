@@ -5,7 +5,7 @@ const app = express();
 
 const connectToMongoDB = async() => {
     try {
-        await mongoose.connect('mongodb://root:root@192.168.56.3:27017/test', {
+        await mongoose.connect('mongodb://root:root@192.168.56.3:27017', {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false,
@@ -15,7 +15,6 @@ const connectToMongoDB = async() => {
         throw err
     }
 }
-
 
 const apiRoutes = require('./api/routes/routes');
 
