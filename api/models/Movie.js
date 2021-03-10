@@ -1,11 +1,8 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-const ObjectId = mongoose.Schema.Types.ObjectId;
+const movieSchema = mongoose.Schema ({
 
-const movieSchema = Schema ({
-
-    _id: ObjectId,
+    _id: mongoose.Schema.Types.ObjectId,
     title: {
         type: String,
         required: true,
@@ -14,6 +11,11 @@ const movieSchema = Schema ({
         type: String,
         required: true
     },
+
+    data_created: {
+        type: String,
+        required: false,
+    }
 });
 
 
