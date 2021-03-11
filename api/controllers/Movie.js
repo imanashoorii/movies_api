@@ -1,15 +1,19 @@
 const mongoose = require('mongoose');
+const Movie = require('../models/Movie');
 
+// List all Movies
 exports.detail = (req, res, next) => {
-    console.log('ok')
-    res.json({
-        'msg': 'hello'
+    console.log('ok detail')
+    Movie.find({}).then(
+        movies => {
+            res.json(movies)
+        }
+    ).catch(err => {
+        throw err
     })
 }
 
-
-const Movie = require('../models/Movie');
-
+// Createing Movie
 exports.create = (req, res) => {
     const { title, director } = req.body;
 
