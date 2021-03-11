@@ -3,18 +3,30 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 const app = express();
 
-async() => {
-    try {
-        await mongoose.connect('mongodb://root:root@192.168.56.3:27017/test', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useFindAndModify: false,
-            useCreateIndex: true
-        });
-    } catch(err) {
-        throw err
+// async() => {
+//     try {
+//         await mongoose.connect('mongodb://root:root@192.168.56.3:27017/test', {
+//             useNewUrlParser: true,
+//             useUnifiedTopology: true,
+//             useFindAndModify: false,
+//             useCreateIndex: true
+//         });
+//     } catch(err) {
+//         throw err
+//     }
+// }
+
+mongoose.connect("mongodb://root:root@192.168.56.3:27017", {
+    useNewUrlParser: true
+},
+err => {
+    if (!err) {
+        console.log("Connected")
+    } else {
+        console.log("connection error" + err)
     }
 }
+);
 
 const apiRoutes = require('./api/routes/routes');
 
