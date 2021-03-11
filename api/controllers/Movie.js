@@ -37,3 +37,26 @@ exports.create = (req, res) => {
     })
     console.log(newMovie)
 };
+
+// Get detail by title
+
+exports.detailByTitle = (req, res, next) => {
+    Movie.find({title: new RegExp('^' + req.params.title + '$', 'i')}, (err, result) => {
+        if (result) {
+            if (result.length === 0) {
+                console.log("No Result")
+                res.status(400).json({
+                    "message": "Not found"
+                })
+            } else {
+                console.log(result)
+                res.status(200).json(result)
+            }
+        } else {
+            console.log(err)
+            res.status(400).json({
+                "message": "Error Found"
+            })
+        }
+    })
+}
